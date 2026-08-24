@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Buon Compleanno &middot; Una lettera per te</title>
+<meta name="description" content="Un biglietto lettera digitale per il tuo compleanno: una rosa che sboccia, i nostri ricordi e un invito speciale." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===================== 1. ROSA SCROLL-DRIVEN ===================== -->
+<section class="rose-stage" id="roseStage">
+  <div class="rose-sticky">
+    <div class="grain"></div>
+    <div class="rose-wrap">
+      <svg id="rose" viewBox="0 0 400 520" aria-label="Rosa che sboccia">
+        <defs>
+          <radialGradient id="petalGrad" cx="50%" cy="35%" r="70%">
+            <stop offset="0%" stop-color="#b8203a" />
+            <stop offset="60%" stop-color="#7e0f26" />
+            <stop offset="100%" stop-color="#420711" />
+          </radialGradient>
+          <radialGradient id="petalGradOuter" cx="50%" cy="40%" r="75%">
+            <stop offset="0%" stop-color="#8c142b" />
+            <stop offset="100%" stop-color="#2e050d" />
+          </radialGradient>
+          <linearGradient id="stemGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3d5c3a" />
+            <stop offset="100%" stop-color="#16250f" />
+          </linearGradient>
+          <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="6" result="b" />
+            <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+
+        <!-- gambo -->
+        <g id="stem">
+          <path id="stemPath" d="M200 300 C 196 380, 204 440, 200 520" stroke="url(#stemGrad)" stroke-width="7" fill="none" stroke-linecap="round" />
+          <path class="leaf" id="leafL" d="M200 400 C 150 388, 122 404, 112 428 C 150 442, 184 428, 200 400 Z" fill="#2c4526" />
+          <path class="leaf" id="leafR" d="M200 440 C 250 428, 278 444, 288 468 C 250 482, 216 468, 200 440 Z" fill="#233a1f" />
+        </g>
+
+        <!-- petali esterni -->
+        <g id="petalsOuter" filter="url(#soft)">
+          <path class="petal outer" d="M200 300 C 128 292, 86 232, 104 172 C 150 150, 198 190, 200 300 Z" fill="url(#petalGradOuter)" />
+          <path class="petal outer" d="M200 300 C 272 292, 314 232, 296 172 C 250 150, 202 190, 200 300 Z" fill="url(#petalGradOuter)" />
+          <path class="petal outer" d="M200 300 C 148 268, 130 190, 178 138 C 216 154, 224 216, 200 300 Z" fill="url(#petalGradOuter)" />
+          <path class="petal outer" d="M200 300 C 252 268, 270 190, 222 138 C 184 154, 176 216, 200 300 Z" fill="url(#petalGradOuter)" />
+        </g>
+
+        <!-- petali medi -->
+        <g id="petalsMid">
+          <path class="petal mid" d="M200 292 C 152 276, 138 214, 176 172 C 208 188, 216 234, 200 292 Z" fill="url(#petalGrad)" />
+          <path class="petal mid" d="M200 292 C 248 276, 262 214, 224 172 C 192 188, 184 234, 200 292 Z" fill="url(#petalGrad)" />
+          <path class="petal mid" d="M200 292 C 166 258, 168 200, 200 168 C 232 200, 234 258, 200 292 Z" fill="url(#petalGrad)" />
+        </g>
+
+        <!-- bocciolo / cuore -->
+        <g id="petalsCore">
+          <path class="petal core" d="M200 286 C 176 264, 176 220, 200 196 C 224 220, 224 264, 200 286 Z" fill="#9b1631" />
+          <path class="petal core" d="M200 280 C 186 262, 186 228, 200 210 C 214 228, 214 262, 200 280 Z" fill="#c02445" />
+          <path class="petal core" d="M200 272 C 193 260, 193 238, 200 226 C 207 238, 207 260, 200 272 Z" fill="#e0405f" />
+        </g>
+      </svg>
+      <div class="glow"></div>
+    </div>
+
+    <div class="rose-copy">
+      <p class="eyebrow" id="roseEyebrow">per te</p>
+      <h1 class="rose-title">Buon Compleanno</h1>
+      <p class="rose-sub">Scorri lentamente&hellip; e guarda cosa sboccia.</p>
+    </div>
+
+    <div class="scroll-hint" id="scrollHint">
+      <span>scorri</span>
+      <div class="scroll-line"><i></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 2. LETTERA / AUGURI ===================== -->
+<section class="section letter-section" id="lettera">
+  <article class="letter reveal">
+    <div class="wax"></div>
+    <p class="letter-date">Torino, 24 agosto</p>
+    <h2 class="letter-hi">Amore mio,</h2>
+    <!-- ✏️ MODIFICA QUI IL TESTO DI AUGURI -->
+    <p>
+      oggi è il tuo giorno, e vorrei che fosse leggero e luminoso come il modo in cui
+      riesci a rendere semplice tutto ciò che tocchi.
+    </p>
+    <p>
+      Grazie per ogni risata rubata al tempo, per le sere lente, per i silenzi
+      comodi. Se dovessi scegliere di nuovo, sceglierei ancora te —
+      ogni singola volta, senza pensarci.
+    </p>
+    <p>
+      Buon compleanno. Che questo anno ti porti tutto quello che meriti,
+      e che io possa esserci a guardarti mentre lo ottieni.
+    </p>
+    <p class="letter-sign">— con tutto il mio amore, Fabio</p>
+  </article>
+</section>
+
+<!-- ===================== 3. GALLERIA ===================== -->
+<section class="section gallery-section" id="ricordi">
+  <header class="sec-head reveal">
+    <p class="eyebrow">i nostri istanti</p>
+    <h2>Piccola collezione di noi</h2>
+  </header>
+
+  <div class="gallery">
+    <!-- 📷 Sostituisci src con le tue foto (cartella /photos) -->
+    <figure class="ph tall reveal">
+      <img src="photos/foto1.jpg" alt="Ricordo insieme" loading="lazy" onerror="this.parentNode.classList.add('empty')" />
+      <figcaption>Il primo viaggio</figcaption>
+    </figure>
+    <figure class="ph reveal">
+      <img src="photos/foto2.jpg" alt="Ricordo insieme" loading="lazy" onerror="this.parentNode.classList.add('empty')" />
+      <figcaption>Quella risata infinita</figcaption>
+    </figure>
+    <figure class="ph reveal">
+      <img src="photos/foto3.jpg" alt="Ricordo insieme" loading="lazy" onerror="this.parentNode.classList.add('empty')" />
+      <figcaption>Domenica lenta</figcaption>
+    </figure>
+    <figure class="ph wide reveal">
+      <img src="photos/foto4.jpg" alt="Ricordo insieme" loading="lazy" onerror="this.parentNode.classList.add('empty')" />
+      <figcaption>Tramonto, mano nella mano</figcaption>
+    </figure>
+    <figure class="ph reveal">
+      <img src="photos/foto5.jpg" alt="Ricordo insieme" loading="lazy" onerror="this.parentNode.classList.add('empty')" />
+      <figcaption>Solo noi due</figcaption>
+    </figure>
+    <figure class="ph tall reveal">
+      <img src="photos/foto6.jpg" alt="Ricordo insieme" loading="lazy" onerror="this.parentNode.classList.add('empty')" />
+      <figcaption>Il tuo sguardo preferito</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== 4. BIGLIETTO D'INVITO ===================== -->
+<section class="section invite-section" id="invito">
+  <div class="invite reveal">
+    <div class="invite-border">
+      <p class="invite-top">Invito riservato · 2 persone</p>
+      <div class="rule"><span>&#10047;</span></div>
+      <h2 class="invite-title">Vintage 1997</h2>
+      <p class="invite-star">Ristorante stellato &middot; Torino</p>
+
+      <dl class="invite-details">
+        <div><dt>Data</dt><dd>Sabato, da definire con te</dd></div>
+        <div><dt>Ora</dt><dd>20:30</dd></div>
+        <div><dt>Dove</dt><dd>Piazza Solferino 16h, Torino</dd></div>
+        <div><dt>Dress code</dt><dd>Elegante, come sempre</dd></div>
+      </dl>
+
+      <div class="rule"><span>&#10047;</span></div>
+      <p class="invite-note">
+        Un tavolo per due, una sera senza fretta.
+        Devi solo dirmi &laquo;sì&raquo;.
+      </p>
+      <a class="btn" href="#lettera">Accetto l'invito</a>
+      <p class="invite-foot">Cena offerta con amore &middot; posto n. 2</p>
+    </div>
+  </div>
+  <p class="credits">fatto a mano, per te &#10084;</p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
